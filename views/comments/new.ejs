@@ -1,0 +1,46 @@
+<% include ../partials/header.ejs%>
+
+<div class="">
+    
+    <div class="row justify-content-center">
+        
+        <div class="col-md-12 text-center">
+            <h1>Add New Comment to <%= camp.name %></h1>
+        </div>
+    
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        
+        
+     <form action="/campgrounds/<%=camp._id%>/comments" method=POST>
+
+        <div class="form-group">
+        
+         <input class="form-control" type="text" name="comment[text]" placeholder="Text">
+        
+        </div>
+  
+    <div class="form-group">
+       
+       <button class="btn btn-default btn-lg btn-block btn-primary" type="submit">Submit</button>
+       
+    </div>
+    
+         <a href="/campgrounds"> Back To Campgrounds </a>
+    
+         </form>    
+        
+        
+        
+        
+</div>    
+
+    
+    </div>
+    
+
+</div>
+
+
+
+
+<% include ../partials/footer.ejs%>

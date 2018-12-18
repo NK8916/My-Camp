@@ -1,0 +1,66 @@
+<% include ../partials/header.ejs%>
+
+<div class="">
+    
+    <div class="row justify-content-center">
+        
+        <div class="col-md-12 text-center">
+            <h1>Edit <%= campground.name %></h1>
+        </div>
+<div class="col-xs-12 col-md-6 col-lg-4"> 
+
+<form action="/campgrounds/<%=campground._id%>?_method=PUT" method=POST enctype="multipart/form-data">
+    
+        
+        <div class="form-group">
+        
+         <input class="form-control" type="text" name="name" value="<%=campground.name%>">
+        
+    </div>
+
+   <div class="form-group">
+        
+         <input class="form-control" type="number" name="price" value="<%=campground.price%>">
+        
+    </div>   
+
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+    </div>
+   
+   <div class="form-group">
+       
+        <input class="form-control" type="text" name="desc" value="<%=campground.desc%>">
+       
+   </div>
+    
+    
+   <div class="form-group">
+       
+       <button class="btn btn-default btn-lg btn-block btn-primary" type="submit">Submit</button>
+       
+   </div>
+    
+    
+
+     <a href="/campgrounds"> Back To Campgrounds </a>
+    
+    </form>    
+        
+
+
+
+
+
+
+    </div>
+    </div>
+    
+
+</div>
+
+
+
+
+<% include ../partials/footer.ejs%>
