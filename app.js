@@ -28,8 +28,9 @@ var methodOverride=require("method-override");
 
 require('dotenv').config();
 
-//mongoose.connect("mongodb://localhost/my_camp_final",{useNewUrlParser:true});
-mongoose.connect("mongodb://nitin:honey8916@ds125502.mlab.com:25502/my_camp",{useNewUrlParser:true});
+var url=process.env.DATABASEURL;
+
+mongoose.connect(url,{useNewUrlParser:true});
 
 app.use(bodyParser.urlencoded({extended:true}));
 
