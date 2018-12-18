@@ -28,7 +28,7 @@ var methodOverride=require("method-override");
 
 require('dotenv').config();
 
-var url=process.env.DATABASEURL;
+var url=process.env.DATABASEURL || "mongodb://localhost/my_camp_final";
 
 mongoose.connect(url,{useNewUrlParser:true});
 
