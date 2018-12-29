@@ -39,8 +39,8 @@ var cloudinary=require("cloudinary");
 
 cloudinary.config({
     cloud_name:'nk987',
-    api_key:427165545164633,
-    api_secret:'UvmtNxNDE-5hg-0XlYjwnpMJJio'
+    api_key:process.env.API_KEY,
+    api_secret:process.env.API_SECRET
 });
 
 
