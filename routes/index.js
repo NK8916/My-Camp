@@ -11,34 +11,6 @@
  var Notification=require("../models/notification");
  var multer   =require("multer");
  
-var storage  =multer.diskStorage({
-    filename:function(req,file,callback){
-        callback(null,Date.now()+file.originalname);
-    }
-});
-
-var imageFilter=function(req,file,cb)
-{
-    if(!file.originalname.match(/\.(jpg|jpeg|png)$/i)){
-        
-        return cb(new Error('Only image files are allowed'),false);
-    }
-    
-    cb(null,true);
-};
-
-
-var upload=multer({storage:storage,fileFilter:imageFilter});
-
-var cloudinary=require("cloudinary");
-
-cloudinary.config({
-    cloud_name:'nk987',
-    api_key:process.env.API_KEY,
-    api_secret:process.env.API_SECRET
-});
-
-
  
 router.get("/",function(req,res){
     
@@ -51,7 +23,7 @@ router.get("/register",function(req, res) {
     res.render("signup",{page:'register'});
 });
 
-router.post("/register", upload.single('image'), async function(req, res) {
+router.post("/register",function(req, res) {
     
          
          var newUser=new User({
@@ -232,9 +204,12 @@ router.post("/forgot",function(req,res,next){
             var Transporter=nodemailer.createTransport(smtpTransport({
                 service:'gmail',
                 host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                requireTLS: true,
                 auth:{
                     user:'phonebat987@gmail.com',
-                    pass:process.env.GMAILPW
+                    pass:process.env.GMAIL_PASS
                     
                 }
             }));
