@@ -34,8 +34,8 @@ var cloudinary=require("cloudinary");
 
 cloudinary.config({
     cloud_name:'nk987',
-    api_key:427165545164633,
-    api_secret:'UvmtNxNDE-5hg-0XlYjwnpMJJio'
+    api_key:process.env.API_KEY,
+    api_secret:process.env.API_SECRET
 });
 
 
@@ -53,12 +53,6 @@ router.get("/register",function(req, res) {
 
 router.post("/register", upload.single('image'), async function(req, res) {
     
-  
-    
-    try{
-        var result= await cloudinary.v2.uploader.upload(req.file.path);
-         req.body.image=result.secure_url;
-         req.body.imageId=result.public_id;
          
          var newUser=new User({
         username:req.body.username,
@@ -93,13 +87,6 @@ router.post("/register", upload.single('image'), async function(req, res) {
         }
         
     });
-        
-        
-    }
-    catch(err) {
-        req.flash('error', err.message);
-        return res.redirect('back');
-      }
     
         
 });    

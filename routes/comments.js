@@ -21,8 +21,7 @@ router.get("/new",middleware.isLoggedIn,function(req, res) {
         
     });
     
-   
-    
+
 });
 
 router.post("/",middleware.isLoggedIn,function(req,res){
