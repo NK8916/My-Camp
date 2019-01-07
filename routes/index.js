@@ -28,11 +28,8 @@ router.post("/register",function(req, res) {
          
          var newUser=new User({
         username:req.body.username,
-        password:req.body.password,
         firstname:req.body.firstname,
         lastname:req.body.lastname,
-        image:req.body.image,
-        imageId:req.body.imageId,
         email:req.body.email
     });
     
