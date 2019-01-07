@@ -1,14 +1,8 @@
 <% include ../partials/header %>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <h1><%=user.firstname + " " + user.lastname%></h1>
-        <div class="thumbnail">
-            <img src="<%=user.image%>" alt="user profile photo" >
-            <div class="caption"><a href="mailto:<%=user.email%>"><%=user.email%></a></div>
-            
-        </div>
-    
       <div>
            <a href="/follow/<%= user.id %>"><button class="btn btn-primary">Follow <%= user.username %></button></a>
           
@@ -17,7 +11,7 @@
         
     </div>
     
-    <div class="col-md-8">
+    <div class="col-md-6">
         <h3><%=user.username%>'s campgrounds</h3>
         <ul>
      <%   campgrounds.forEach(function(campground){ %>
